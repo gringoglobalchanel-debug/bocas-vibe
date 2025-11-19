@@ -1,13 +1,127 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Search } from 'lucide-react'
 
 const HeroSection = () => {
   const [searchQuery, setSearchQuery] = useState('')
+  const navigate = useNavigate()
+
+  // Mapeo de palabras clave a rutas
+  const keywordRoutes = {
+    // Hoteles y alojamiento
+    'hotel': '/alojamiento',
+    'hoteles': '/alojamiento', 
+    'alojamiento': '/alojamiento',
+    'hospedaje': '/alojamiento',
+    'resort': '/alojamiento',
+    'hostal': '/alojamiento',
+    'airbnb': '/alojamiento',
+    'cabaña': '/alojamiento',
+    'bungalow': '/alojamiento',
+    
+    // Tours y actividades
+    'tour': '/tours',
+    'tours': '/tours',
+    'excursión': '/tours',
+    'excursiones': '/tours',
+    'actividad': '/tours',
+    'actividades': '/tours',
+    'aventura': '/tours',
+    'snorkel': '/tours',
+    'snorkeling': '/tours',
+    'buceo': '/tours',
+    'surf': '/tours',
+    'bioluminiscencia': '/tours',
+    'delfines': '/tours',
+    
+    // Restaurantes
+    'restaurante': '/restaurantes',
+    'restaurantes': '/restaurantes',
+    'comida': '/restaurantes',
+    'cenar': '/restaurantes',
+    'almorzar': '/restaurantes',
+    'desayunar': '/restaurantes',
+    'bar': '/restaurantes',
+    'mariscos': '/restaurantes',
+    'gastronomía': '/restaurantes',
+    
+    // Transporte
+    'transporte': '/transporte',
+    'taxi': '/transporte',
+    'lancha': '/transporte',
+    'water taxi': '/transporte',
+    'bote': '/transporte',
+    'barco': '/transporte',
+    'golf cart': '/transporte',
+    'bicicleta': '/transporte',
+    'alquiler': '/transporte',
+    'movilidad': '/transporte',
+    
+    // Islas
+    'isla': '/islas',
+    'islas': '/islas',
+    'playa': '/islas',
+    'playas': '/islas',
+    'colon': '/islas',
+    'bastimentos': '/islas',
+    'carenero': '/islas',
+    'zapatillas': '/islas',
+    'solarte': '/islas',
+    
+    // Bares y vida nocturna
+    'discoteca': '/bares',
+    'fiesta': '/bares',
+    'noche': '/bares',
+    'nocturno': '/bares',
+    'música': '/bares',
+    'baile': '/bares',
+    'copas': '/bares',
+    'coctel': '/bares',
+    
+    // Eventos
+    'evento': '/eventos',
+    'eventos': '/eventos',
+    'festival': '/eventos',
+    'concierto': '/eventos',
+    'celebración': '/eventos'
+  }
 
   const handleSearch = (e) => {
     e.preventDefault()
-    console.log('Buscando:', searchQuery)
+    
+    if (!searchQuery.trim()) return
+
+    const query = searchQuery.toLowerCase().trim()
+    
+    // Buscar coincidencias exactas primero
+    for (const [keyword, route] of Object.entries(keywordRoutes)) {
+      if (query === keyword) {
+        navigate(route)
+        return
+      }
+    }
+
+    // Buscar coincidencias parciales
+    for (const [keyword, route] of Object.entries(keywordRoutes)) {
+      if (query.includes(keyword)) {
+        navigate(route)
+        return
+      }
+    }
+
+    // Si no encuentra coincidencia, mostrar mensaje o redirigir a página de búsqueda
+    alert(`No encontramos resultados para "${searchQuery}". Intenta con palabras como: hotel, tour, restaurante, transporte, etc.`)
+    // Alternativamente: navigate('/busqueda', { state: { query: searchQuery } })
   }
+
+  const popularSearches = [
+    { term: 'Hoteles', route: '/alojamiento' },
+    { term: 'Tours de snorkel', route: '/tours' },
+    { term: 'Restaurantes', route: '/restaurantes' },
+    { term: 'Lanchas', route: '/transporte' },
+    { term: 'Islas', route: '/islas' },
+    { term: 'Bares', route: '/bares' }
+  ]
 
   return (
     <div className="space-y-8">
@@ -50,6 +164,26 @@ const HeroSection = () => {
               <Search size={20} />
               <span>Buscar</span>
             </button>
+          </div>
+          
+          {/* Búsquedas populares */}
+          <div className="mt-4">
+            <p className="text-sm text-gray-600 mb-2">Búsquedas populares:</p>
+            <div className="flex flex-wrap gap-2">
+              {popularSearches.map((search, index) => (
+                <button
+                  key={index}
+                  type="button"
+                  onClick={() => {
+                    setSearchQuery(search.term)
+                    setTimeout(() => document.querySelector('form').requestSubmit(), 100)
+                  }}
+                  className="text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1 rounded-full transition-colors"
+                >
+                  {search.term}
+                </button>
+              ))}
+            </div>
           </div>
         </form>
       </div>
