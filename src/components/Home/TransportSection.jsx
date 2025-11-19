@@ -1,0 +1,109 @@
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { Car, Bus, Phone, MapPin, Clock } from 'lucide-react'
+
+const TransportSection = () => {
+  const transportServices = [
+    { 
+      id: 1, 
+      name: 'Bocas Taxi Service', 
+      type: 'Taxis Locales', 
+      price: '$3-10', 
+      image: '🚕',
+      location: 'Bocas Town, Isla Colón',
+      phone: '+507 757-9201',
+      hours: '24/7',
+      description: 'Servicio de taxi en golf cart por toda Isla Colón'
+    },
+    { 
+      id: 2, 
+      name: 'Bocas Bike Rental', 
+      type: 'Alquiler de Bicicletas', 
+      price: '$8/día', 
+      image: '🚲',
+      location: 'Calle 2, Bocas Town',
+      phone: '+507 757-9202',
+      hours: '7:00 AM - 7:00 PM', 
+      description: 'Bicicletas para explorar la isla a tu ritmo'
+    },
+    { 
+      id: 3, 
+      name: 'Island Golf Cart Rentals', 
+      type: 'Alquiler Golf Carts', 
+      price: '$35/día', 
+      image: '🛺',
+      location: 'Av. H, Bocas Town',
+      phone: '+507 757-9203',
+      hours: '7:00 AM - 8:00 PM',
+      description: 'Golf carts para grupos y familias'
+    }
+  ]
+
+  const TransportCard = ({ service }) => (
+    <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all">
+      <div className="h-32 bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center text-5xl">
+        {service.image}
+      </div>
+      <div className="p-4">
+        <div className="flex justify-between items-start mb-2">
+          <div>
+            <h3 className="font-bold text-lg text-gray-800">{service.name}</h3>
+            <p className="text-gray-600 text-sm">{service.type}</p>
+          </div>
+          <div className="text-green-600 font-bold">{service.price}</div>
+        </div>
+        
+        <div className="flex items-center text-sm text-gray-600 mb-1">
+          <MapPin size={14} className="mr-1" />
+          {service.location}
+        </div>
+        
+        <div className="flex items-center text-sm text-gray-600 mb-3">
+          <Clock size={14} className="mr-1" />
+          {service.hours}
+        </div>
+
+        <div className="mb-3">
+          <p className="text-sm text-gray-700">
+            {service.description}
+          </p>
+        </div>
+
+        <div className="flex space-x-2">
+          <a href={`tel:${service.phone}`} className="flex-1 bg-green-500 text-white text-center py-2 rounded-lg hover:bg-green-600 transition-colors flex items-center justify-center text-sm">
+            <Phone size={14} className="mr-1" />
+            Llamar
+          </a>
+          <a href={`https://wa.me/${service.phone.replace('+', '')}?text=Hola, me interesa el servicio: ${service.name}`} 
+             target="_blank" 
+             rel="noopener noreferrer"
+             className="flex-1 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors flex items-center justify-center text-sm">
+            <Car size={14} className="mr-1" />
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  )
+
+  return (
+    <section className="max-w-7xl mx-auto px-4">
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-3xl font-bold text-gray-800">🚗 Transporte Terrestre</h2>
+        <Link 
+          to="/transporte" 
+          className="text-blue-600 font-semibold hover:underline flex items-center"
+        >
+          Ver todos los servicios →
+        </Link>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {transportServices.map(service => (
+          <TransportCard key={service.id} service={service} />
+        ))}
+      </div>
+    </section>
+  )
+}
+
+export default TransportSection
