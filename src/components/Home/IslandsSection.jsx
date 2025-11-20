@@ -2,6 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Clock, MapPin } from 'lucide-react'
 
+// Importar imágenes de islas
+import island1 from '../../assets/images/islands/island-1.jpg'
+import island2 from '../../assets/images/islands/island-2.jpg'
+import island3 from '../../assets/images/islands/island-3.jpg'
+import island4 from '../../assets/images/islands/island-4.jpg'
+import island5 from '../../assets/images/islands/island-5.jpg'
+import island6 from '../../assets/images/islands/island-6.jpg'
+
 const IslandsSection = () => {
   const featuredIslands = [
     {
@@ -9,28 +17,53 @@ const IslandsSection = () => {
       name: 'Isla Colón',
       time: '0 min',
       description: 'El corazón de Bocas con todos los servicios',
-      image: '🏝️'
+      image: island1
     },
     {
       id: 2,
       name: 'Isla Bastimentos',
       time: '15 min',
       description: 'Parque Nacional y playas vírgenes',
-      image: '🌴'
+      image: island2
     },
     {
       id: 3,
       name: 'Islas Zapatillas',
       time: '45 min',
       description: 'Paraíso virgen con arena blanca',
-      image: '👟'
+      image: island3
+    },
+    {
+      id: 4,
+      name: 'Isla Carenero',
+      time: '5 min',
+      description: 'Surf y ambiente relajado',
+      image: island4
+    },
+    {
+      id: 5,
+      name: 'Isla Solarte',
+      time: '20 min',
+      description: 'Snorkel en Hospital Point',
+      image: island5
+    },
+    {
+      id: 6,
+      name: 'Isla Cristóbal',
+      time: '25 min',
+      description: 'Comunidad indígena y cultura Ngäbe',
+      image: island6
     }
   ]
 
   const IslandCard = ({ island }) => (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all">
-      <div className="h-32 bg-gradient-to-br from-green-400 to-blue-400 flex items-center justify-center text-5xl">
-        {island.image}
+      <div className="h-48 overflow-hidden">
+        <img 
+          src={island.image} 
+          alt={island.name}
+          className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+        />
       </div>
       <div className="p-4">
         <h3 className="font-bold text-lg mb-2 text-gray-800">{island.name}</h3>
@@ -60,7 +93,6 @@ const IslandsSection = () => {
           <strong>🗺️ Archipiélago de 9 islas principales</strong> • <strong>🚤 Conectadas por lanchas</strong> • <strong>🌊 Paraíso caribeño</strong>
         </p>
       </div>
-
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {featuredIslands.map(island => (
           <IslandCard key={island.id} island={island} />

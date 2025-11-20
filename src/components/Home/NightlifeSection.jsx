@@ -2,6 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Clock, Music, Star } from 'lucide-react'
 
+// Importar imágenes de vida nocturna
+import nightlife1 from '../../assets/images/nightlife/nightlife-1.jpg'
+import nightlife2 from '../../assets/images/nightlife/nightlife-2.jpg'
+import nightlife3 from '../../assets/images/nightlife/nightlife-3.jpg'
+import nightlife4 from '../../assets/images/nightlife/nightlife-4.jpg'
+import nightlife5 from '../../assets/images/nightlife/nightlife-5.jpg'
+import nightlife6 from '../../assets/images/nightlife/nightlife-6.jpg'
+
 const NightlifeSection = () => {
   const featuredVenues = [
     {
@@ -10,7 +18,7 @@ const NightlifeSection = () => {
       type: 'Bar Flotante',
       hours: '2PM - 2AM',
       rating: 4.5,
-      image: '🏝️',
+      image: nightlife1,
       special: 'Trampolines acuáticos'
     },
     {
@@ -19,7 +27,7 @@ const NightlifeSection = () => {
       type: 'Discoteca',
       hours: '9PM - 4AM',
       rating: 4.3,
-      image: '💃',
+      image: nightlife2,
       special: 'DJ en vivo'
     },
     {
@@ -28,15 +36,46 @@ const NightlifeSection = () => {
       type: 'Bar Caribeño',
       hours: '5PM - 1AM',
       rating: 4.6,
-      image: '🦎',
+      image: nightlife3,
       special: 'Música en vivo'
+    },
+    {
+      id: 4,
+      name: 'Barco Hundido',
+      type: 'Bar Temático',
+      hours: '4PM - 12AM',
+      rating: 4.4,
+      image: nightlife4,
+      special: 'Vista al mar'
+    },
+    {
+      id: 5,
+      name: 'Selina Rooftop',
+      type: 'Bar & Lounge',
+      hours: '6PM - 2AM',
+      rating: 4.7,
+      image: nightlife5,
+      special: 'Terraza panorámica'
+    },
+    {
+      id: 6,
+      name: 'Bocas Brewery',
+      type: 'Cervecería',
+      hours: '3PM - 11PM',
+      rating: 4.5,
+      image: nightlife6,
+      special: 'Cervezas artesanales'
     }
   ]
 
   const NightlifeCard = ({ venue }) => (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all">
-      <div className="h-32 bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center text-5xl">
-        {venue.image}
+      <div className="h-48 overflow-hidden">
+        <img 
+          src={venue.image} 
+          alt={venue.name}
+          className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+        />
       </div>
       <div className="p-4">
         <div className="flex justify-between items-start mb-2">
@@ -54,12 +93,10 @@ const NightlifeSection = () => {
           <Clock size={14} className="mr-1" />
           {venue.hours}
         </div>
-
         <div className="flex items-center text-sm text-gray-600 mb-3">
           <Music size={14} className="mr-1" />
           {venue.special}
         </div>
-
         <button className="w-full bg-purple-500 text-white py-2 rounded-lg hover:bg-purple-600 transition-colors text-sm">
           Ver detalles
         </button>
@@ -81,7 +118,6 @@ const NightlifeSection = () => {
           <strong>🎉 Vida nocturna vibrante</strong> • <strong>🎵 Música en vivo</strong> • <strong>🌊 Bares únicos</strong>
         </p>
       </div>
-
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {featuredVenues.map(venue => (
           <NightlifeCard key={venue.id} venue={venue} />

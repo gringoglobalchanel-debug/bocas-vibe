@@ -2,6 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { MapPin, Star, Phone, Globe } from 'lucide-react'
 
+// Importar imágenes de hoteles
+import hotel1 from '../../assets/images/hotels/hotel-1.jpg'
+import hotel2 from '../../assets/images/hotels/hotel-2.jpg'
+import hotel3 from '../../assets/images/hotels/hotel-3.jpg'
+import hotel4 from '../../assets/images/hotels/hotel-4.jpg'
+import hotel5 from '../../assets/images/hotels/hotel-5.jpg'
+import hotel6 from '../../assets/images/hotels/hotel-6.jpg'
+
 const HotelsSection = () => {
   const featuredHotels = [
     { 
@@ -9,7 +17,7 @@ const HotelsSection = () => {
       name: 'Hotel Bocas del Toro', 
       price: 85, 
       rating: 4.2, 
-      image: '🏨', 
+      image: hotel1, 
       location: 'Calle 3, Bocas Town',
       phone: '+507 757-9001',
       website: 'https://hotelbocasdeltoro.com'
@@ -19,7 +27,7 @@ const HotelsSection = () => {
       name: 'Selina Bocas del Toro', 
       price: 45, 
       rating: 4.5, 
-      image: '🎨', 
+      image: hotel2, 
       location: 'Calle 1, Bocas Town',
       phone: '+507 757-9002',
       website: 'https://selina.com/bocas-del-toro'
@@ -29,17 +37,51 @@ const HotelsSection = () => {
       name: 'Tropical Suites Hotel', 
       price: 95, 
       rating: 4.3, 
-      image: '🏝️', 
+      image: hotel3, 
       location: 'Av. G, Bocas Town',
       phone: '+507 757-9003',
       website: 'https://tropicalsuitesbocas.com'
+    },
+    { 
+      id: 4, 
+      name: 'Playa Tortuga Hotel', 
+      price: 120, 
+      rating: 4.7, 
+      image: hotel4, 
+      location: 'Playa Bluff, Isla Colón',
+      phone: '+507 757-9004',
+      website: 'https://playatortugabocas.com'
+    },
+    { 
+      id: 5, 
+      name: 'Casa Acuario', 
+      price: 65, 
+      rating: 4.4, 
+      image: hotel5, 
+      location: 'Calle 5, Bocas Town',
+      phone: '+507 757-9005',
+      website: 'https://casaacuario.com'
+    },
+    { 
+      id: 6, 
+      name: 'La Coralina Island House', 
+      price: 150, 
+      rating: 4.8, 
+      image: hotel6, 
+      location: 'Isla Bastimentos',
+      phone: '+507 757-9006',
+      website: 'https://lacoralina.com'
     }
   ]
 
   const HotelCard = ({ hotel }) => (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all hotel-card">
-      <div className="h-48 bg-gradient-to-br from-blue-400 to-teal-300 flex items-center justify-center text-6xl">
-        {hotel.image}
+      <div className="h-48 overflow-hidden">
+        <img 
+          src={hotel.image} 
+          alt={hotel.name}
+          className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+        />
       </div>
       <div className="p-4">
         <h3 className="font-bold text-lg mb-2 text-gray-800">{hotel.name}</h3>
