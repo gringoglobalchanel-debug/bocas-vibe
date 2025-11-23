@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Hotel, Compass, Utensils, Car, Island, Music, Users, Calendar } from 'lucide-react'
+import { Hotel, Compass, Utensils, Car, MapPin, Music, Users, Calendar } from 'lucide-react'
 
 const FeaturesSection = () => {
   const services = [
@@ -33,7 +33,7 @@ const FeaturesSection = () => {
       color: 'from-purple-500 to-purple-600'
     },
     {
-      icon: <Island size={32} />,
+      icon: <MapPin size={32} />,
       title: 'Islas',
       description: 'Guía del archipiélago',
       link: '/islas',
