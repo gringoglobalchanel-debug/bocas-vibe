@@ -1,5 +1,5 @@
 import React from 'react'
-import HotelsSection from '../components/Home/HotelsSection'
+import HotelsSectionFull from '../components/Home/HotelsSectionFull'
 
 const HotelsPage = () => {
   return (
@@ -9,7 +9,7 @@ const HotelsPage = () => {
           <h1 className="text-4xl font-bold mb-2 text-gray-800">🏨 Todos los Hoteles</h1>
           <p className="text-gray-600">Encuentra el alojamiento perfecto en Bocas del Toro</p>
         </div>
-        <HotelsSection />
+        <HotelsSectionFull />
       </div>
     </div>
   )

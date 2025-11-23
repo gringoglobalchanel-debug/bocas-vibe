@@ -1,5 +1,5 @@
 import React from 'react'
-import RestaurantsSection from '../components/Home/RestaurantsSection'
+import RestaurantsSectionFull from '../components/Home/RestaurantsSectionFull'
 
 const RestaurantsPage = () => {
   return (
@@ -9,7 +9,7 @@ const RestaurantsPage = () => {
           <h1 className="text-4xl font-bold mb-2 text-gray-800">🍽️ Todos los Restaurantes</h1>
           <p className="text-gray-600">Descubre los sabores del Caribe panameño</p>
         </div>
-        <RestaurantsSection />
+        <RestaurantsSectionFull />
       </div>
     </div>
   )
