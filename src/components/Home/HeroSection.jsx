@@ -10,7 +10,7 @@ const HeroSection = () => {
   const keywordRoutes = {
     // Hoteles y alojamiento
     'hotel': '/alojamiento',
-    'hoteles': '/alojamiento', 
+    'hoteles': '/alojamiento',
     'alojamiento': '/alojamiento',
     'hospedaje': '/alojamiento',
     'resort': '/alojamiento',
@@ -18,7 +18,7 @@ const HeroSection = () => {
     'airbnb': '/alojamiento',
     'cabaña': '/alojamiento',
     'bungalow': '/alojamiento',
-    
+
     // Tours y actividades
     'tour': '/tours',
     'tours': '/tours',
@@ -33,7 +33,7 @@ const HeroSection = () => {
     'surf': '/tours',
     'bioluminiscencia': '/tours',
     'delfines': '/tours',
-    
+
     // Restaurantes
     'restaurante': '/restaurantes',
     'restaurantes': '/restaurantes',
@@ -44,7 +44,7 @@ const HeroSection = () => {
     'bar': '/restaurantes',
     'mariscos': '/restaurantes',
     'gastronomía': '/restaurantes',
-    
+
     // Transporte
     'transporte': '/transporte',
     'taxi': '/transporte',
@@ -56,7 +56,7 @@ const HeroSection = () => {
     'bicicleta': '/transporte',
     'alquiler': '/transporte',
     'movilidad': '/transporte',
-    
+
     // Islas
     'isla': '/islas',
     'islas': '/islas',
@@ -67,7 +67,7 @@ const HeroSection = () => {
     'carenero': '/islas',
     'zapatillas': '/islas',
     'solarte': '/islas',
-    
+
     // Bares y vida nocturna
     'discoteca': '/bares',
     'fiesta': '/bares',
@@ -77,7 +77,99 @@ const HeroSection = () => {
     'baile': '/bares',
     'copas': '/bares',
     'coctel': '/bares',
-    
+
+    // Eventos
+    'evento': '/eventos',
+    'eventos': '/eventos',
+    'festival': '/eventos',
+    'concierto': '/eventos',
+    'celebración': '/eventos'
+  }
+
+cd /c/BocasVibe
+
+# Actualizar HeroSection.jsx
+cat > src/components/Home/HeroSection.jsx << 'EOF'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Search } from 'lucide-react'
+
+const HeroSection = () => {
+  const [searchQuery, setSearchQuery] = useState('')
+  const navigate = useNavigate()
+
+  // Mapeo de palabras clave a rutas
+  const keywordRoutes = {
+    // Hoteles y alojamiento
+    'hotel': '/alojamiento',
+    'hoteles': '/alojamiento',
+    'alojamiento': '/alojamiento',
+    'hospedaje': '/alojamiento',
+    'resort': '/alojamiento',
+    'hostal': '/alojamiento',
+    'airbnb': '/alojamiento',
+    'cabaña': '/alojamiento',
+    'bungalow': '/alojamiento',
+
+    // Tours y actividades
+    'tour': '/tours',
+    'tours': '/tours',
+    'excursión': '/tours',
+    'excursiones': '/tours',
+    'actividad': '/tours',
+    'actividades': '/tours',
+    'aventura': '/tours',
+    'snorkel': '/tours',
+    'snorkeling': '/tours',
+    'buceo': '/tours',
+    'surf': '/tours',
+    'bioluminiscencia': '/tours',
+    'delfines': '/tours',
+
+    // Restaurantes
+    'restaurante': '/restaurantes',
+    'restaurantes': '/restaurantes',
+    'comida': '/restaurantes',
+    'cenar': '/restaurantes',
+    'almorzar': '/restaurantes',
+    'desayunar': '/restaurantes',
+    'bar': '/restaurantes',
+    'mariscos': '/restaurantes',
+    'gastronomía': '/restaurantes',
+
+    // Transporte
+    'transporte': '/transporte',
+    'taxi': '/transporte',
+    'lancha': '/transporte',
+    'water taxi': '/transporte',
+    'bote': '/transporte',
+    'barco': '/transporte',
+    'golf cart': '/transporte',
+    'bicicleta': '/transporte',
+    'alquiler': '/transporte',
+    'movilidad': '/transporte',
+
+    // Islas
+    'isla': '/islas',
+    'islas': '/islas',
+    'playa': '/islas',
+    'playas': '/islas',
+    'colon': '/islas',
+    'bastimentos': '/islas',
+    'carenero': '/islas',
+    'zapatillas': '/islas',
+    'solarte': '/islas',
+
+    // Bares y vida nocturna
+    'discoteca': '/bares',
+    'fiesta': '/bares',
+    'noche': '/bares',
+    'nocturno': '/bares',
+    'música': '/bares',
+    'baile': '/bares',
+    'copas': '/bares',
+    'coctel': '/bares',
+
     // Eventos
     'evento': '/eventos',
     'eventos': '/eventos',
@@ -88,11 +180,11 @@ const HeroSection = () => {
 
   const handleSearch = (e) => {
     e.preventDefault()
-    
+
     if (!searchQuery.trim()) return
 
     const query = searchQuery.toLowerCase().trim()
-    
+
     // Buscar coincidencias exactas primero
     for (const [keyword, route] of Object.entries(keywordRoutes)) {
       if (query === keyword) {
@@ -126,13 +218,13 @@ const HeroSection = () => {
   return (
     <div className="space-y-8">
       {/* Banner con imagen */}
-      <div 
+      <div
         className="relative h-96 rounded-3xl overflow-hidden shadow-2xl mt-4 bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/hero-banner.png')" }}
+        style={{ backgroundImage: `url('${import.meta.env.BASE_URL}images/hero-banner.png')` }}
       >
         {/* Overlay para mejor legibilidad del texto */}
         <div className="absolute inset-0 bg-black/40"></div>
-        
+
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center p-6">
           <h1 className="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg">
             Descubre Bocas del Toro
@@ -142,7 +234,7 @@ const HeroSection = () => {
           </p>
         </div>
       </div>
-      
+
       {/* Barra de búsqueda FUERA del banner */}
       <div className="max-w-4xl mx-auto px-6 -mt-4">
         <form onSubmit={handleSearch} className="bg-white/95 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-gray-200">
@@ -157,7 +249,7 @@ const HeroSection = () => {
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
             </div>
-            <button 
+            <button
               type="submit"
               className="bg-gradient-to-r from-blue-600 to-teal-500 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all flex items-center justify-center space-x-2 min-w-[120px]"
             >
@@ -165,7 +257,7 @@ const HeroSection = () => {
               <span>Buscar</span>
             </button>
           </div>
-          
+
           {/* Búsquedas populares */}
           <div className="mt-4">
             <p className="text-sm text-gray-600 mb-2">Búsquedas populares:</p>
