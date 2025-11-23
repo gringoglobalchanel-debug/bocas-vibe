@@ -1,14 +1,6 @@
 import React from 'react'
 import HeroSection from '../components/Home/HeroSection'
 import FeaturesSection from '../components/Home/FeaturesSection'
-import ToursSection from '../components/Home/ToursSection'
-import HotelsSection from '../components/Home/HotelsSection'
-import RestaurantsSection from '../components/Home/RestaurantsSection'
-import TransportSection from '../components/Home/TransportSection'
-import WaterTransportSection from '../components/Home/WaterTransportSection'
-import IslandsSection from '../components/Home/IslandsSection'
-import NightlifeSection from '../components/Home/NightlifeSection'
-import EventsSection from '../components/Home/EventsSection'
 import TestimonialsSection from '../components/Home/TestimonialsSection'
 
 const HomePage = () => {
@@ -16,14 +8,6 @@ const HomePage = () => {
     <div className="space-y-16 pb-12">
       <HeroSection />
       <FeaturesSection />
-      <ToursSection />
-      <HotelsSection />
-      <RestaurantsSection />
-      <TransportSection />
-      <WaterTransportSection />
-      <IslandsSection />
-      <NightlifeSection />
-      <EventsSection />
       <TestimonialsSection />
       
       {/* Sección App Download */}
