@@ -94,15 +94,6 @@ const HeroSection = () => {
     alert('No encontramos resultados para "' + searchQuery + '". Intenta con palabras como: hotel, tour, restaurante, transporte, etc.')
   }
 
-  const popularSearches = [
-    { term: 'Hoteles', route: '/alojamiento' },
-    { term: 'Tours de snorkel', route: '/tours' },
-    { term: 'Restaurantes', route: '/restaurantes' },
-    { term: 'Lanchas', route: '/transporte' },
-    { term: 'Islas', route: '/islas' },
-    { term: 'Bares', route: '/bares' }
-  ]
-
   const bannerUrl = import.meta.env.BASE_URL + 'images/hero-banner.png'
 
   return (
@@ -142,25 +133,6 @@ const HeroSection = () => {
               <Search size={20} />
               <span>Buscar</span>
             </button>
-          </div>
-
-          <div className="mt-4">
-            <p className="text-sm text-gray-600 mb-2">Búsquedas populares:</p>
-            <div className="flex flex-wrap gap-2">
-              {popularSearches.map((search, index) => (
-                <button
-                  key={index}
-                  type="button"
-                  onClick={() => {
-                    setSearchQuery(search.term)
-                    setTimeout(() => document.querySelector('form').requestSubmit(), 100)
-                  }}
-                  className="text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1 rounded-full transition-colors"
-                >
-                  {search.term}
-                </button>
-              ))}
-            </div>
           </div>
         </form>
       </div>
