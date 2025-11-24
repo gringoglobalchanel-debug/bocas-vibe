@@ -84,14 +84,14 @@ const NightlifeSectionFull = () => {
     },
     {
       id: 6,
-      name: 'Bocas Brewery',
-      type: 'Cervecería',
-      category: 'Cervecería',
-      hours: '3PM - 11PM',
+      name: 'Toro Loco',
+      type: 'Bar de Playa',
+      category: 'Bar',
+      hours: '12PM - 11PM',
       rating: 4.5,
       image: nightlife6,
-      special: 'Cervezas artesanales',
-      musicType: 'Rock',
+      special: 'Tragos tropicales',
+      musicType: 'Tropical',
       priceRange: 'medio',
       location: 'Bocas Town'
     }
@@ -156,7 +156,6 @@ const NightlifeSectionFull = () => {
             <option value="Bar">Bar</option>
             <option value="Discoteca">Discoteca</option>
             <option value="Lounge">Lounge</option>
-            <option value="Cervecería">Cervecería</option>
           </select>
           
           <select 
@@ -168,7 +167,6 @@ const NightlifeSectionFull = () => {
             <option value="Reggae">Reggae</option>
             <option value="Electrónica">Electrónica</option>
             <option value="Tropical">Tropical</option>
-            <option value="Rock">Rock</option>
             <option value="Variado">Variado</option>
           </select>
           
