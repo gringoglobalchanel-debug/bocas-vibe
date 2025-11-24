@@ -26,7 +26,7 @@ const HotelsSectionFull = () => {
       image: hotel1, 
       location: 'Calle 3, Bocas Town',
       phone: '+507 757-9001',
-      website: 'https://hotelbocasdeltoro.com',
+      website: 'https://www.hotelbocasdeltoro.com',
       description: 'Hotel céntrico con vistas al mar y comodidades modernas',
       amenities: ['wifi', 'breakfast', 'ac', 'parking'],
       type: 'hotel',
@@ -34,45 +34,45 @@ const HotelsSectionFull = () => {
     },
     { 
       id: 2, 
-      name: 'Selina Bocas del Toro', 
-      price: 45, 
-      rating: 4.5, 
+      name: 'Al Natural Resort', 
+      price: 180, 
+      rating: 4.8, 
       image: hotel2, 
-      location: 'Calle 1, Bocas Town',
+      location: 'Isla Bastimentos',
       phone: '+507 757-9002',
-      website: 'https://selina.com/bocas-del-toro',
-      description: 'Hostal con ambiente social, ideal para mochileros',
-      amenities: ['wifi', 'co-working', 'bar', 'activities'],
-      type: 'hostal',
-      area: 'Bocas Town'
+      website: 'https://www.alnaturalresort.com',
+      description: 'Resort eco-friendly sobre el agua con cabañas privadas',
+      amenities: ['wifi', 'breakfast', 'restaurant', 'snorkel'],
+      type: 'resort',
+      area: 'Isla Bastimentos'
     },
     { 
       id: 3, 
-      name: 'Tropical Suites Hotel', 
-      price: 95, 
-      rating: 4.3, 
+      name: 'Hotel Casa Max', 
+      price: 75, 
+      rating: 4.4, 
       image: hotel3, 
-      location: 'Av. G, Bocas Town',
+      location: 'Calle 6, Bocas Town',
       phone: '+507 757-9003',
-      website: 'https://tropicalsuitesbocas.com',
-      description: 'Suites espaciosas con balcón y vista al océano',
-      amenities: ['wifi', 'breakfast', 'ac', 'pool'],
+      website: 'https://www.hotelcasamax.com',
+      description: 'Hotel boutique con terraza panorámica y ambiente acogedor',
+      amenities: ['wifi', 'breakfast', 'ac', 'terrace'],
       type: 'hotel',
       area: 'Bocas Town'
     },
     { 
       id: 4, 
-      name: 'Playa Tortuga Hotel', 
-      price: 120, 
+      name: 'Eclypse de Mar', 
+      price: 140, 
       rating: 4.7, 
       image: hotel4, 
-      location: 'Playa Bluff, Isla Colón',
+      location: 'Isla Solarte',
       phone: '+507 757-9004',
-      website: 'https://playatortugabocas.com',
-      description: 'Resort de lujo frente a la playa con todos los servicios',
-      amenities: ['wifi', 'breakfast', 'ac', 'pool', 'spa', 'restaurant'],
-      type: 'resort',
-      area: 'Playa Bluff'
+      website: 'https://www.eclypsedemar.com',
+      description: 'Eco-lodge exclusivo con vista al mar y naturaleza virgen',
+      amenities: ['wifi', 'breakfast', 'kayak', 'tours'],
+      type: 'eco-lodge',
+      area: 'Isla Solarte'
     },
     { 
       id: 5, 
@@ -82,25 +82,25 @@ const HotelsSectionFull = () => {
       image: hotel5, 
       location: 'Calle 5, Bocas Town',
       phone: '+507 757-9005',
-      website: 'https://casaacuario.com',
-      description: 'Bungalows rústicos frente al mar, perfectos para desconectar',
+      website: 'https://www.casaacuario.com',
+      description: 'Hotel económico y limpio en el centro de Bocas Town',
       amenities: ['wifi', 'breakfast', 'fan'],
-      type: 'bungalow',
+      type: 'hotel',
       area: 'Bocas Town'
     },
     { 
       id: 6, 
-      name: 'La Coralina Island House', 
-      price: 150, 
-      rating: 4.8, 
+      name: 'Hotel Palma Royale', 
+      price: 110, 
+      rating: 4.6, 
       image: hotel6, 
-      location: 'Isla Bastimentos',
+      location: 'Bocas Town Waterfront',
       phone: '+507 757-9006',
-      website: 'https://lacoralina.com',
-      description: 'Alojamiento ecológico en medio de la naturaleza virgen',
-      amenities: ['wifi', 'breakfast', 'fan', 'tours'],
-      type: 'eco-lodge',
-      area: 'Isla Bastimentos'
+      website: 'https://www.palmaroyale.com',
+      description: 'Hotel frente al mar con piscina y excelente ubicación',
+      amenities: ['wifi', 'breakfast', 'ac', 'pool'],
+      type: 'hotel',
+      area: 'Bocas Town'
     }
   ]
 
@@ -188,9 +188,8 @@ const HotelsSectionFull = () => {
           >
             <option value="">Todas las ubicaciones</option>
             <option value="Bocas Town">Bocas Town</option>
-            <option value="Playa Bluff">Playa Bluff</option>
-            <option value="Isla Carenero">Isla Carenero</option>
             <option value="Isla Bastimentos">Isla Bastimentos</option>
+            <option value="Isla Solarte">Isla Solarte</option>
           </select>
           
           <select 
@@ -200,9 +199,7 @@ const HotelsSectionFull = () => {
           >
             <option value="">Todos los tipos</option>
             <option value="hotel">Hotel</option>
-            <option value="hostal">Hostal</option>
             <option value="resort">Resort</option>
-            <option value="bungalow">Bungalow</option>
             <option value="eco-lodge">Eco-Lodge</option>
           </select>
           
