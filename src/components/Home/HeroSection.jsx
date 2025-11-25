@@ -94,7 +94,7 @@ const HeroSection = () => {
     alert('No encontramos resultados para "' + searchQuery + '". Intenta con palabras como: hotel, tour, restaurante, transporte, etc.')
   }
 
-  const bannerUrl = '/bocas-vibe/images/hero-banner.png'
+  const bannerUrl = import.meta.env.BASE_URL + 'images/hero-banner.png'
 
   return (
     <div className="space-y-8">
